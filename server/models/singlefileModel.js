@@ -21,4 +21,4 @@ const singleFileSchema = new Schema({
     }
 }, {timestamps: true});
 
-module.exports = mongoose.model('SingleFile', singleFileSchema);
+module.exports = mongoose.model('singlefiles', singleFileSchema);
