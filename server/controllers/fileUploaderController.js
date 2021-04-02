@@ -39,6 +39,15 @@ const multipleFileUpload = async (req, res, cb) => {
     }
 }
 
+const getallSingleFile = async (req, res, next) => {
+    try {
+        const files = await SingleFile.find();
+        res.status(200).send(files);
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+}
+
 const fileSizeFormatter = (bytes, decimal) => {
     if(bytes === 0){
         return ' 0 Bytes';
@@ -49,4 +58,5 @@ const fileSizeFormatter = (bytes, decimal) => {
     return parseFloat(( bytes / Math.pow(1000, index)).toFixed(dm)) + ' ' + sizes[index];
 }
 
-module.exports = { singleFileUpload, multipleFileUpload }
+module.exports = { singleFileUpload, multipleFileUpload,
+                    getallSingleFile }
