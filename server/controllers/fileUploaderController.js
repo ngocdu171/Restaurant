@@ -1,5 +1,5 @@
 const SingleFile = require('../models/singlefileModel');
-const MultiplsFiles = require('../models/multiplefilesModel');
+const MultipleFiles = require('../models/multiplefilesModel');
 
 const singleFileUpload = async (req, res, next) => {
     try {
@@ -28,7 +28,7 @@ const multipleFileUpload = async (req, res, cb) => {
             }
             filesArray.push(file);
         });
-        const multipleFiles = new MultiplsFiles({
+        const multipleFiles = new MultipleFiles({
             title: req.body.title,
             files: filesArray
         });
@@ -48,6 +48,15 @@ const getallSingleFile = async (req, res, next) => {
     }
 }
 
+const getallMultiFiles = async (req, res, next) => {
+    try {
+        const files = await MultipleFiles.find();
+        res.status(200).send(files);
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+}
+
 const fileSizeFormatter = (bytes, decimal) => {
     if(bytes === 0){
         return ' 0 Bytes';
@@ -59,4 +68,4 @@ const fileSizeFormatter = (bytes, decimal) => {
 }
 
 module.exports = { singleFileUpload, multipleFileUpload,
-                    getallSingleFile }
+                    getallSingleFile, getallMultiFiles }
