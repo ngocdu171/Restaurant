@@ -11,19 +11,19 @@ import {
 } from "@material-ui/core";
 import { Home } from "@material-ui/icons";
 
-const Navbar = () => {
+const navLinks = [
+  { title: "home", path: "/home" },
+  { title: "menu", path: "/menu" },
+  { title: "contact", path: "/contact" },
+];
+
+const Header = () => {
   const classes = useStyles();
 
-  const navLinks = [
-    { title: "home", path: "/home" },
-    { title: "menu", path: "/menu" },
-    { title: "contact", path: "/contact" },
-  ];
-
   return (
-    <AppBar position="static">
+    <AppBar position="static" className={classes.root}>
       <Toolbar>
-        <Container maxWidth="md" className={classes.navDisplayFlex}>
+        <Container maxWidth="md" className={classes.navbarDisplayFlex}>
           <IconButton edge="start" aria-label="home">
             <Home fontSize="large" />
           </IconButton>
@@ -47,6 +47,13 @@ const Navbar = () => {
 };
 
 const useStyles = makeStyles({
+  root: {
+    backgroundColor: 'red'
+  },
+  navbarDisplayFlex: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
   navDisplayFlex: {
     display: "flex",
     justifyContent: "space-between",
@@ -58,4 +65,4 @@ const useStyles = makeStyles({
   }
 });
 
-export default Navbar;
+export default Header;

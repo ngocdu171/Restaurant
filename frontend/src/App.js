@@ -1,13 +1,14 @@
-import './App.css';
-import { Typography } from '@material-ui/core'
-import Footer from './components/Footer';
-import Test from './components/Test';
-import Navbar from './components/Navbar';
+import "./App.css";
+import { Typography } from "@material-ui/core";
+import Test from "./components/Test";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
 function App() {
   return (
     <div className="App">
-    <Typography variant="body1" color="secondary">asdasdad</Typography>
-    <Navbar />
+      <Header />
+      <Home />
       <Footer />
     </div>
   );
